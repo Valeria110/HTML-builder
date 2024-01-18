@@ -51,7 +51,7 @@ readableStream.on('end', () => {
 
 // Compile css files from the folder styles into a single file in the project-dist folder:
 const cssWritableStream = fs.createWriteStream(
-  path.join(__dirname, 'project-dist', 'bundle.css'),
+  path.join(__dirname, 'project-dist', 'style.css'),
   'utf-8',
 );
 
