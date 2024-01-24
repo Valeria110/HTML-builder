@@ -22,3 +22,17 @@ fs.readdir(
     });
   },
 );
+
+fs.readdir(path.join(__dirname, 'files-copy'), (err, filesCopy) => {
+  if (err) throw err;
+
+  filesCopy.forEach((fileCopy) => {
+    fs.readdir(path.join(__dirname, 'files'), (err, files) => {
+      if (err) throw err;
+      if (!files.includes(fileCopy))
+        fs.unlink(path.join(__dirname, 'files-copy', fileCopy), (err) => {
+          if (err) console.log(err);
+        });
+    });
+  });
+});
